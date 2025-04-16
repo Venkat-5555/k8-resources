@@ -4,4 +4,4 @@ metadata:
   name: lables
   labels:
     project: expense
-    enviornment: dev
+    environment: dev

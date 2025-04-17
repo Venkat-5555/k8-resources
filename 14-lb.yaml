@@ -8,7 +8,7 @@ spec:
     project: expense
     module: backend
   ports:
-  - name: nginx-LB
+  - name: nginx-lb
     protocol: TCP
     port: 80 #service port
     targetPort: 80 # container port

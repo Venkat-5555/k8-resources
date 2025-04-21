@@ -10,7 +10,7 @@ spec:
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-03f1a10feddcf8d71
+    volumeHandle: vol-05177b4312ba5c38f
 
 ---
 apiVersion: v1
@@ -25,3 +25,19 @@ spec:
   resources:
     requests:
       storage: 2Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: expense-ebs-static
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: ebs-static-3gi
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: ebs-static-3gi
+    persistentVolumeClaim:
+      claimName: ebs-static
